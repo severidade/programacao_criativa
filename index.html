@@ -21,12 +21,45 @@
     context.lineWidth = 4;
     context.beginPath();
     context.rect(100, 100, 400, 400);
-    context.stroke();
+    // context.stroke();
 
     // Cria um círculo
     context.beginPath();
     context.arc(300, 300, 100, 0, Math.PI * 2);
-    context.stroke();
+    // context.stroke();
+
+    // Faz um loop
+    const width = 60;
+    const height = 60;
+    const gap = 20;
+    let x, y;
+
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j < 5; j++){
+        x = 100 + (width + gap) * i;
+        y = 100 + (width + gap) * j;
+  
+        context.beginPath();
+        // context.rect(100 + 80 * i, 100, 60, 60);
+        context.rect(x, y, width, height)
+        context.stroke();
+        
+        // Desenha o segundo quadrado inserido no maior
+        // a condição faz com que ele nao apareça na primeira e na última coluna
+        // if (i > 0 && i < 4) {
+        //   context.beginPath()
+        //   context.rect(x + 8, y + 8, width -16, height -16 )
+        //   context.stroke();
+        // }
+
+        if (Math.random() > 0.5) {
+          context.beginPath()
+          context.rect(x + 8, y + 8, width -16, height -16 )
+          context.stroke();
+        }
+
+      }
+    }
 
 
 
@@ -51,12 +84,40 @@
 
     // arrow function
     // ussa uma variável para referenciar uma função
-
     let  multiply = (a, b) => {
       return a * b;
     }
 
     console.log(multiply(5,7));
+
+    // Array
+    let years = [];
+    let menu = ["starter", "main", "desert", "drinks", "sides"];
+
+    // Loop For
+    for (let i = 0; i < menu.length; i ++) {
+      console.log(menu[i]);
+    }
+
+    for (let i = 0; i < 10; i++) {
+      years.push(2023 + i);
+    }
+
+    console.log(years);
+
+    // loop foreach
+    menu.forEach(item =>{
+      console.log(item);
+    });
+
+
+
+
+    // const e let
+    // sempre usar const quando sabemos que um valor nao vai variar
+
+    const gravity = 9.81;
+    let velocity = 0.0;
 
   </script>
 </body>
