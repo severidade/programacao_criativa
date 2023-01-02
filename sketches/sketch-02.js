@@ -8,12 +8,21 @@ const degToRad = (degrees) => {
   return degrees / 180 * Math.PI;
 }
 
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 const sketch = () => {
   return ({ context, width, height }) => {
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
 
-    context.fillStyle = "black";
+    // context.fillStyle = "black";
     
     const center_x = width * 0.5;
     const center_y = height * 0.5;
@@ -36,7 +45,9 @@ const sketch = () => {
   
         context.translate(x, y);
         context.rotate(-angle)
-  
+
+        // context.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 -42.5 * i) + ',0)';
+        context.fillStyle = getRandomColor();
         context.beginPath();
         context.rect(-w * 0.5, -h * 0.5, w, h)
         context.fill();
