@@ -57,23 +57,18 @@ const sketch = () => {
         context.beginPath();
         context.rect(-w * 0.5, -h * 0.5, w, h)
         context.fill();
-        
-        // context.beginPath();
-        // // context.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 -42.5 * i) + ',0)';
-        // context.arc(0, 0, 50, 0, Math.PI * 2);
-        // context.fill();
         context.restore();
 
-        // context.save()
-        // context.translate(center_x, center_y);
-        // context.rotate(-angle)
+        context.save()
+        context.translate(center_x, center_y);
+        context.rotate(-angle)
 
-        // context.lineWidth = 20;
+        context.lineWidth = 10;
         
-        // context.beginPath()
-        // context.arc(0, 0, radius, slice * -0.3 , slice * 0.3);
-        // context.stroke();
-        // context.restore();
+        context.beginPath()
+        context.arc(0, 0, radius, slice * -0.3 , slice * 0.3);
+        context.stroke();
+        context.restore();
 
     }
 
