@@ -8,7 +8,7 @@ const degToRad = (degrees) => {
   return degrees / 180 * Math.PI;
 }
 
-function getRandomColor() {
+const getRandomColor =() => {
   var letters = '0123456789ABCDEF';
   var color = '#';
   for (var i = 0; i < 6; i++) {
@@ -17,12 +17,18 @@ function getRandomColor() {
   return color;
 }
 
+const randomRange = (min, max) => {
+  return Math.random() * (min, max) + min;
+}
+
+
+
 const sketch = () => {
   return ({ context, width, height }) => {
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
 
-    // context.fillStyle = "black";
+    context.fillStyle = "black";
     
     const center_x = width * 0.5;
     const center_y = height * 0.5;
@@ -44,19 +50,31 @@ const sketch = () => {
         context.save()
   
         context.translate(x, y);
-        context.rotate(-angle)
+        context.rotate(-angle);
+        context.scale(randomRange(1, 3), 1);
 
-        // context.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 -42.5 * i) + ',0)';
-        context.fillStyle = getRandomColor();
+        // context.fillStyle = getRandomColor();
         context.beginPath();
         context.rect(-w * 0.5, -h * 0.5, w, h)
         context.fill();
-      
+        
         // context.beginPath();
-        // context.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 -42.5 * i) + ',0)';
+        // // context.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 -42.5 * i) + ',0)';
         // context.arc(0, 0, 50, 0, Math.PI * 2);
         // context.fill();
         context.restore();
+
+        // context.save()
+        // context.translate(center_x, center_y);
+        // context.rotate(-angle)
+
+        // context.lineWidth = 20;
+        
+        // context.beginPath()
+        // context.arc(0, 0, radius, slice * -0.3 , slice * 0.3);
+        // context.stroke();
+        // context.restore();
+
     }
 
   };
