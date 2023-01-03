@@ -1,12 +1,10 @@
 const canvasSketch = require('canvas-sketch');
+const math = require('canvas-sketch-util/math')
+const random = require('canvas-sketch-util/random')
 
 const settings = {
   dimensions: [ 1080, 1080 ]
 };
-
-const degToRad = (degrees) => {
-  return degrees / 180 * Math.PI;
-}
 
 const getRandomColor =() => {
   var letters = '0123456789ABCDEF';
@@ -16,12 +14,6 @@ const getRandomColor =() => {
   }
   return color;
 }
-
-const randomRange = (min, max) => {
-  return Math.random() * (min, max) + min;
-}
-
-
 
 const sketch = () => {
   return ({ context, width, height }) => {
@@ -41,7 +33,7 @@ const sketch = () => {
     const radius = width * 0.3;
 
     for (let i = 0; i < num; i++) {
-        const slice = degToRad(360) / num;
+        const slice = math.degToRad(360) / num;
         const angle = slice * i;
 
         x = center_x + radius * Math.sin(angle);
@@ -51,7 +43,7 @@ const sketch = () => {
   
         context.translate(x, y);
         context.rotate(-angle);
-        context.scale(randomRange(1, 3), 1);
+        context.scale(random.range(1, 3), 1);
 
         // context.fillStyle = getRandomColor();
         context.beginPath();
