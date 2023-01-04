@@ -22,12 +22,6 @@ const sketch = ({ context, width, height }) => {
     agents.forEach(agent =>{
       agent.draw(context);
     });
-
-    // const agentA = new Agent(800, 400);
-    // const agentB = new Agent(300, 700);
-
-    // agentA.draw(context);
-    // agentB.draw(context);
   };
 };
 
